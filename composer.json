@@ -10,7 +10,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Tall\\Schema\\": "tall-schema/src"
+            "Tall\\Schema\\": "src"
         }
     },
     
