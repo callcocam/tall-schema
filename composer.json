@@ -1,0 +1,26 @@
+{
+    "name": "callcocam/tall-schema",
+    "type": "package",
+    "description": "The packages schema table.",
+    "keywords": ["framework", "laravel", "livewire", "alpinejs", "tailwindcss"],
+    "license": "MIT",
+    "require": {
+        "php": "^7.3|^8.0",
+        "doctrine/dbal": "^3.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Tall\\Schema\\": "tall-schema/src"
+        }
+    },
+    
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Tall\\Schema\\SchemaServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
