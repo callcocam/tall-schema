@@ -15,9 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/reports/models', function (Request $request) {
-    return \Tall\Schema\Schema::models();
+    return \Tall\Schema\Schema::models(config('schema.ignore.models',[]));
 })->name('tall.schema.api.reports.models');
 
 Route::get('/reports/tables', function (Request $request) {
-    return \Tall\Schema\Schema::tables();
+    return \Tall\Schema\Schema::tables(config('schema.ignore.tables',[]));
 })->name('tall.schema.api.reports.tables');
