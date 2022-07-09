@@ -6,5 +6,8 @@
 */
 
 return [
-    //
+    'models'=>[],
+    'paths'=>[
+        'app/Models'
+    ],
 ];

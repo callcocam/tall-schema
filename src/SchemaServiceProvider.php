@@ -28,6 +28,11 @@ class SchemaServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->mergeConfigFrom(
+            __DIR__ . '/../config/schema.php','schema'
+        );
+        $this->publishes([
+            __DIR__.'/../config/schema.php' => config_path('schema.php'),
+        ], 'schema');
     }
 }
