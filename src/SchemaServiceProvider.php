@@ -28,6 +28,7 @@ class SchemaServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $this->loadRoutesFrom( __DIR__ . '/../routes/api.php');
         $this->mergeConfigFrom(
             __DIR__ . '/../config/schema.php','schema'
         );

@@ -35,33 +35,35 @@ class Schema
         }
     }
 
-    public static function tablesNames($ignoreTables = []){
+    public static function tables($ignoreTables = []){
         $tables = self::make()->getTableNames()->toArray();
-
         $options = [];
         foreach($tables as $table){
             if(!in_array($table, $ignoreTables)){
-                $options[$table] = $table;
+                $options[] = [
+                    "id"=>$table,
+                    "name"=>$table,
+                ];
             }
         }
         return $options;
     }
 
     
-    public static function tables($ignore = []){
-        $collection = new \Illuminate\Database\Eloquent\Collection;
+    public static function models($ignore = []){
+        
         if($paths = config("schema.paths")){
             foreach($paths as $path){
                 $tables = self::getModels(base_path($path));
                 foreach($tables as $table){
                     $label = \Str::afterLast($table, '\\');
                     if(!in_array($label, $ignore)){
-                        $collection->put($table,$label );
+                        $collection[]= ["id"=>$table,"name"=>$label];
                     }
                 }
             }
         }
-        return $collection;
+        return collect($collection);
     }
 
     protected static function getModels($path): Collection

@@ -6,6 +6,10 @@
 */
 
 return [
+    'routes'=>[
+        'tables'=>'tall.schema.api.reports.tables',
+        'models'=>'tall.schema.api.reports.models',
+    ],
     'models'=>[],
     'paths'=>[
         'app/Models'
