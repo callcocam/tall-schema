@@ -37,13 +37,11 @@ class Schema
 
     public static function tables($ignoreTables = []){
         $tables = self::make()->getTableNames()->toArray();
+
         $options = [];
         foreach($tables as $table){
             if(!in_array($table, $ignoreTables)){
-                $options[] = [
-                    "id"=>$table,
-                    "name"=>$table,
-                ];
+                $options[$table] = $table;
             }
         }
         return $options;
@@ -51,6 +49,7 @@ class Schema
 
     
     public static function models($ignore = []){
+        $collection = new \Illuminate\Database\Eloquent\Collection;
         
         if($paths = config("schema.paths")){
             foreach($paths as $path){
@@ -58,12 +57,12 @@ class Schema
                 foreach($tables as $table){
                     $label = \Str::afterLast($table, '\\');
                     if(!in_array($label, $ignore)){
-                        $collection[]= ["id"=>$table,"name"=>$label];
+                        $collection->put($table,$label );
                     }
                 }
             }
         }
-        return collect($collection);
+        return $collection->toArray();
     }
 
     protected static function getModels($path): Collection
