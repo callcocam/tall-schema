@@ -11,9 +11,38 @@ return [
         'models'=>'tall.schema.api.reports.models',
     ],
     'models'=>[],
+    'tables'=>[],
     'ignore'=>[
-        'models'=>[], //araary
-        'tables'=>['reports','filters','cells','sessions'], //araary
+        'models'=>[
+            "Attribute",
+            "Permission",
+            "Role",
+            "Header",
+            "Cell",
+            "Coluna",
+            "Documento",
+            "File",
+            "Filter",
+            "Image",
+            "Description",
+            "Relationship",
+            "Status"
+        ], //araary
+        'tables'=>[
+            'reports',
+            'statuses',
+            'relationships',
+            'filters',
+            'cells',
+            'sessions',
+            'attributes',
+            'permissions',
+            'roles',
+            'headers',
+            'documents',
+            'files',
+            'images'
+    ], //araary
     ],
     'paths'=>[
         'app/Models'
